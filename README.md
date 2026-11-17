@@ -86,3 +86,28 @@ The training of YoloV8n model was done for 100 epochs and was completed in 2.719
 2. Compare with 4 other models by YoloV8.
 3. Create ID tracking of workers and save bounding boxes of workers not wearing proper PPE.
 4. ML App deployment with alarm trigerring.
+
+# Лабораторная работа №3: Обнаружение СИЗ (YOLOv8)
+
+## Описание
+Проект посвящён адаптации модели YOLOv8 для обнаружения средств индивидуальной защиты (каски, жилеты, маски) на строительной площадке.
+
+## Оборудование и окружение
+*   **ОС:** Windows 10/11
+*   **Процессор:** AMD Ryzen 3 3100 (4 ядра)
+*   **Видеокарта:** Нет (обучение на CPU)
+*   **Python:** 3.14.3
+*   **Библиотеки:** `ultralytics==8.4.215`, `torch==2.15.0+cpu`, `opencv-python`, `pandas`, `seaborn` (см. `requirements.txt` или устанавливались через pip).
+
+## Инструкция по запуску
+1. Установите зависимости: `pip install ultralytics pandas pyyaml tqdm seaborn`
+2. Убедитесь, что данные лежат в папке `data/` (train, valid, test).
+3. Запуск базового обучения (E1): `py src/e1_train_base.py`
+4. Запуск обучения с гипотезой (E2): `py src/e2_train_imgsz.py`
+5. Оценка на тесте: `py src/evaluate_test.py`
+6. Поиск ошибок: `py src/find_errors.py`
+
+## Результаты
+*   Лучшая модель: `runs/detect/runs/ppe/e2_imgsz/weights/best.pt`
+*   Отчёт с метриками: `reports/lab03-report.md`
+*   Паспорт данных: `data/README.md`
